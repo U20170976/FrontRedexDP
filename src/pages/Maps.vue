@@ -28,7 +28,11 @@
     
     <MglMap class="main-map" :accessToken="accessToken" 
             :mapStyle="mapStyle" :center="center" 
-            :zoom="zoom" style="height:750px!important;" 
+            :zoom="zoom" style="height:750px!important;overflow: hidden;" 
+            :maxZoom="maxZoom" 
+            :minZoom="minZoom"
+            :dragPan="true"
+            :dragRotate="false"
             :renderWorldCopies = false
             @onload="onMapLoaded">
 
@@ -157,6 +161,10 @@ export default {
       mapStyle: 'mapbox://styles/mapbox/dark-v10',
       center: [5,15],
       zoom: 2,
+      dragPan: "true",
+      dragRotate: "false",
+      maxZoom: 18,
+      minZoom: 2,
       sedes:{
         type:'geojson',
         //data: 'https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson',
